@@ -5,12 +5,13 @@ import flixel.input.gamepad.FlxGamepad;
 class PlayState extends FlxState
 {
     public function onDeviceConnected(gp:FlxGamepad){
-        trace("A gamepad has been connected!");
+        FlxG.log.add("A gamepad has been connected!");
     }
 
     override public function create():Void 
     {
         super.create();
+        FlxG.debugger.visible=true;
         FlxG.gamepads.deviceConnected.add(onDeviceConnected);
     }
 
@@ -31,12 +32,12 @@ class PlayState extends FlxState
         //trace currently pressed buttons
         if (gamepad.pressed.A)
         {
-            trace("The A button has been pressed.");
+            FlxG.log.add("The A button has been pressed.");
         }
 		
         if (gamepad.analog.justMoved.LEFT_STICK_X)
         {
-            trace("The x axis of the left analog stick of the controller has been moved.");
+            FlxG.log.add("The x axis of the left analog stick of the controller has been moved.");
         }
     }
 }
