@@ -4,6 +4,16 @@ import flixel.input.gamepad.FlxGamepad;
 
 class PlayState extends FlxState
 {
+    public function onDeviceConnected(gp:FlxGamepad){
+        trace("A gamepad has been connected!");
+    }
+
+    override public function create():Void 
+    {
+        super.create();
+        FlxG.gamepads.deviceConnected.add(onDeviceConnected);
+    }
+
     override public function update(elapsed:Float):Void 
     {
         super.update(elapsed);
@@ -18,6 +28,7 @@ class PlayState extends FlxState
 
     function updateGamepadInput(gamepad:FlxGamepad):Void
     {
+        //trace currently pressed buttons
         if (gamepad.pressed.A)
         {
             trace("The bottom face button of the controller is pressed.");
