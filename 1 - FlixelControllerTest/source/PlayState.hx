@@ -31,7 +31,7 @@ class PlayState extends FlxState
         //trace currently pressed buttons
         if (gamepad.pressed.A)
         {
-            trace("The bottom face button of the controller is pressed.");
+            trace("The A button has been pressed.");
         }
 		
         if (gamepad.analog.justMoved.LEFT_STICK_X)
